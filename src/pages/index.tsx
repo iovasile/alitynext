@@ -9,7 +9,7 @@ const Home: NextPage = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <h1>Ality next</h1>
+        <h1 className="text-3xl font-bold underline">Ality next</h1>
       </div>
     </>
   );
