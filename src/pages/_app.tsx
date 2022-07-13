@@ -6,24 +6,27 @@ import { SessionProvider } from "next-auth/react";
 import superjson from "superjson";
 import { MantineProvider } from "@mantine/core";
 import "../styles/globals.css";
+import { NotificationsProvider } from "@mantine/notifications";
 
 const MyApp: AppType = ({
   Component,
   pageProps: { session, ...pageProps },
 }) => {
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      theme={{
-        /** Put your mantine theme override here */
-        colorScheme: "dark",
-      }}
-    >
-      <SessionProvider session={session}>
-        <Component {...pageProps} />
-      </SessionProvider>
-    </MantineProvider>
+    <SessionProvider session={session}>
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{
+          /** Put your mantine theme override here */
+          colorScheme: "dark",
+        }}
+      >
+        <NotificationsProvider>
+          <Component {...pageProps} />
+        </NotificationsProvider>
+      </MantineProvider>
+    </SessionProvider>
   );
 };
 
