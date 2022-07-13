@@ -11,12 +11,6 @@ const Login: NextPage = () => {
       email: "",
       password: "",
     },
-
-    validate: {
-      email: (value) => (/^\S+@\S+$/.test(value) ? null : "Invalid email"),
-      password: (value) =>
-        value.length < 8 ? "Password must be at least 8 characters" : null,
-    },
   });
 
   return (
@@ -43,6 +37,7 @@ const Login: NextPage = () => {
               label="Password"
               type="password"
               placeholder="your safe password"
+              minLength={8}
               {...form.getInputProps("password")}
             />
 
