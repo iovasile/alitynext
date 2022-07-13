@@ -3,11 +3,6 @@ import Head from "next/head";
 import { trpc } from "../utils/trpc";
 
 const Home: NextPage = () => {
-  const { data, isLoading } = trpc.useQuery([
-    "example.hello",
-    { text: "from tRPC" },
-  ]);
-
   return (
     <>
       <Head>
@@ -43,8 +38,6 @@ const Home: NextPage = () => {
               </a>
             </li>
           </ul>
-
-          <div>{data ? <p>{data.greeting}</p> : <p>Loading..</p>}</div>
         </div>
       </div>
     </>
